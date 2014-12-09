@@ -319,7 +319,7 @@ subpopulation labels.
 
 
 \newpage
-\section{Genetic Drift and Neutral Diversity}
+\section{Genetic drift and neutral diversity}
 
 Various sources of randomness are inherent in evolution. One major
 source of stochasticity in population genetics is genetic drift. 
@@ -338,7 +338,7 @@ the fitness (we'll make clear what we mean by discernable later, for
 the moment think of this as “no effect” on fitness). 
 
 
-\subsection{Loss of heterozygosity due to to drift.}
+\subsection{Loss of heterozygosity due to to drift}
 
 Genetic drift will, in the absence of new mutations, slowly purge our
 population of neutral genetic diversity as alleles slowly drift to high or low
@@ -465,7 +465,7 @@ So all else being equal, species with larger population sizes should
 have proportionally higher levels of neutral polymorphism. 
 
 
-\subsection{The effective population size.}
+\subsection{The effective population size}
 In practice populations rarely conform to our assumptions of being
 constant in size with low variance in reproduction success. Real
 populations experience dramatic fluctuations in size, and there is
@@ -1638,7 +1638,7 @@ in frequency if it has a higher geometric mean fitness than allele $A_2$
 (at least in our simple deterministic model). \\
 
 
-\subsection{Diploid model}
+\subsection{Diploid selection model}
 We will now move on to a diploid model of a single locus with two segregating alleles.
 We will assume that the difference in fitness between the three
 genotypes comes from differences in viability, i.e.\ differential
@@ -2077,47 +2077,44 @@ from the population.
 
 \newpage
 \subsection{Migration--selection balance}
-Another reason for the persistence of deleterious alleles in a
+Another potential reason for the persistence of deleterious alleles in a
 population is that there is a constant influx of maladaptive alleles
 from other populations where these alleles are locally adapted.
-This seems unlikely to be as broad an explanation for the
-persistence of deleterious alleles genome-wide as mutation-selection
-balance. However, a brief discussion of such alleles is worthwhile as
-it helps to inform our ideas about local adaptation.\\
+This seems unlikely to be as broad an explanation as mutation--selection balance for the
+persistence of deleterious alleles on a genome-wide scale. However, a brief discussion of such alleles is worthwhile, as it helps to inform our ideas about local adaptation.\\
 
-As a first pass at this lets consider a haploid two allele model with
-two different populations, where the relative fitnesses of our alleles
-are as follows
+As a first pass at this, let us consider a haploid two-allele model with
+two different populations, where the relative fitnesses of the two alleles
+$A_1$ and $A_2$ are as follows:
 \begin{center}
-\begin{tabular}{c|cc}
-allele & $1$ & $2$ \\
-\hline
-population 1 & 1 & 1-s \\
-population 2 & 1-s & 1 \\
-\end{tabular}
+	\begin{tabular}{c|cc}
+		allele & $A_1$ & $A_2$ \\
+		\hline
+		population 1 & 1 & $1-s$ \\
+		population 2 & $1-s$ & 1 \\
+	\end{tabular}
 \end{center}
-As a simple model of migration lets suppose within a population a
-fraction of $m$ individuals are migrants from the other population,
-and $1-m$ individuals are from the same deme.\\
 
-To quickly sketch a solution to this well set up a situation analogous
-to our mutation-selection balance model. to do this lets assume that selection is strong compared to migration ($s \gg m$) then allele
-$1$ will be almost fixed in population $1$ and allele $2$ will be
-almost fixed in population $2$. If that is the case,
-migration changes the frequency of allele $2$ in population $1$ ($q_1$) by
+Hence, allele $A_1$ is advantageous in population 1, but deleterious in population 2, and vice versa for allele $A_2$. Let us denote the frequency of $A_1$ and $A_2$ in population 1 by $p_1$ and $q_1$, respectively. Analogously, we use $p_2$ and $q_2$ for the frequency of $A_1$ and $A_2$ in population 2. As a simple model of migration, we assume that migration between the two populations is symmetric in the sense that, each generation, a fraction of $m$ individuals are migrants from  the other population, and a fraction of $1-m$ are residents from the population itself.\\
+
+In each population, selection favours the respective locally beneficial allele. At the same time, migration introduces the locally deleterious allele at rate $m$. This sounds very similar to the scenario of the previous section, where selection was acting against deleterious alleles that are constantly introduced via mutation. Indeed, to study the interaction of selection and migration, we will set up a situation analogous
+to the one we encountered above when studying mutation--selection balance. Let us assume that selection is strong compared to migration ($s \gg m$), so that allele
+$A_1$ will be almost fixed in population $1$ ($p_1 \approx 1$, $q_1 \approx 0$) and allele $A_2$ will be
+almost fixed in population $2$ ($q_2 \approx 1$, $p_1 \approx 0$). If that is the case,
+migration changes the frequency $q_1$ of allele $A_2$ in population $1$ by
 \begin{equation}
-\Delta_{Mig.} q_1 \approx m
+	\Delta_{\mathrm{Mig}} q_1 = m q_2 + (1-m) q_1 - q_1 = m (q_2 - q_1) \approx m.
 \end{equation}
-while as noted above $\Delta_{S} q_1= -sq_1$, so that migration and
+Note the similarity to eqn.\ \eqref{eq:mutApprox}. As we have seen above, the change due to selection is $\Delta_{S} q_1= -sq_1$, so that migration and
 selection are at an equilibrium when $\Delta_{S} q_1+
-\Delta_{Mig.}q_1$, i.e. an equilibrium frequency of allele $2$ in
+\Delta_{\mathrm{Mig}}q_1 = 0$. This implies an equilibrium frequency of allele $A_2$ in
 population $1$ of
 \begin{equation}
-q_{e,1} = \frac{m}{s}
+	q_{e,1} = \frac{m}{s}.
 \end{equation}
-so that migration is playing to role of mutation and so
-migration-selection balance (at least under strong selection) is
-analogous to mutation selection balance.\\
+Comparing to eqn.\ \eqref{eqn:mut_sel_bal}, migration is playing to role of mutation here; 
+migration--selection balance is
+analogous to mutation selection--balance, at least if selection is strong relative to migration and mutation.\\
 
 \subsubsection{Some theory of the spatial distribution of allele
 frequencies under deterministic models of selection}
