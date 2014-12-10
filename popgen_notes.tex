@@ -2119,67 +2119,66 @@ analogous to mutation selection--balance, at least if selection is strong relati
 \subsubsection{The spatial distribution of allele
 frequencies under deterministic models of selection}
 Imagine a continuous haploid population spread out along a line. 
-individual dispersals a random distance $\Delta x$ from its birthplace to the
-location where it reproduces, where $\Delta x$ is drawn from the probability
-density $g(~)$. To make life simple we will assume that $g(\Delta x)$
-is normally distributed with mean zero and standard deviation
-$\sigma$, i.e. migration is unbiased an individuals migrate an average
+Individuals disperse a random distance $\Delta x$ from their birthplace to the
+location where where they reproduce, where $\Delta x$ is drawn from the probability
+density $g(~)$. For simplicity, we will assume that $g(\Delta x)$
+is a normal distribution with mean zero and standard deviation
+$\sigma$, i.e.\ migration is unbiased in terms of direction, and individuals migrate an average
 distance of $\sigma$. \\
 
-Our frequency of allele $2$ at time $t$ in the population at spatial
+The frequency of allele $A_2$ at time $t$ in the population at spatial
 location $x$ is $q(x,t)$. Assuming that only dispersal occurs, how
-does our allele frequency change in the next generation. Our allele
-frequency in the next generation at location $x$ reflects
-the migration from different locations in the proceeding
-generation. Our population at location $x$ receives a contribution
-$g(\Delta x)q(x+\Delta x,t)$ of allele $2$ from the population at location $x+\Delta x$,
-such that the frequency of our allele at $x$ in the next generation is
+does $q(x,t)$ change in the next generation? The allele
+frequency in the next generation at location $x$ must reflect
+ migration of individuals from different locations in the current
+generation to $x$ in the next generation. The local `population' at $x$ receives a contribution
+$g(\Delta x)q(x+\Delta x,t)$ of allele $A_2$ from the population at location $x+\Delta x$,
+such that the frequency of allele $A_2$ at $x$ in the next generation is
 \begin{equation}
-q(x,t+1) = \int_{-\infty}^{\infty} g(\Delta x)q(x+\Delta x,t) d \Delta x.
+	q(x,t+1) = \int_{-\infty}^{\infty} g(\Delta x)q(x+\Delta x,t) d \Delta x.
 \end{equation}
-To obtain
-$q(x+\Delta x,t)$ lets take a taylor series expansion of $q(x,t)$
+
+To obtain $q(x+\Delta x,t)$, let us take a Taylor series expansion of $q(x,t)$ as follows:
 \begin{equation}
-q(x+\Delta x,t) = q(x,t) + \Delta x \frac{dq(x,t)}{dx}+ \tfrac{1}{2}(\Delta x)^2 \frac{d^2q(x,t)}{dx^2}+\cdots
+	q(x+\Delta x,t) = q(x,t) + \Delta x \frac{dq(x,t)}{dx}+ \tfrac{1}{2}(\Delta x)^2 \frac{d^2q(x,t)}{dx^2}+\mathcal{O}(\Delta x)^3.
 \end{equation}
-then
+Then, ignoring terms of order $\mathcal{O}(\Delta x)^3$ and higher,
 \begin{equation}
-q(x,t+1) = q(x,t) +\left( \int_{-\infty}^{\infty} \Delta x g(\Delta x) 
+	q(x,t+1) \approx q(x,t) +\left( \int_{-\infty}^{\infty} \Delta x g(\Delta x) 
   d \Delta x \right) \frac{dq(x,t)}{dx} + \tfrac{1}{2}\left( \int_{-\infty}^{\infty}(\Delta x)^2 g(\Delta x) 
-  d \Delta x \right)  \frac{d^2q(x,t)}{dx^2}+\cdots
+  d \Delta x \right)  \frac{d^2q(x,t)}{dx^2}.
 \end{equation} 
-$g(~)$ has a mean of zero so $ \int_{-\infty}^{\infty} \Delta x g(\Delta x) 
-  d \Delta x =0$ and has variance $\sigma^2$ so $\int_{-\infty}^{\infty}(\Delta x)^2 g(\Delta x) 
-  d \Delta x = \sigma^2$ and all higher terms are zero (as all high
-  moments of the normal are zero). Looking at the change in frequency $\Delta
-  q(x,t) = q(x,t+1)-q(x,t+1)$ then 
+Recall that $g(~)$ has a mean of zero, so that $ \int_{-\infty}^{\infty} \Delta x g(\Delta x) 
+  d \Delta x =0$, and $g(~)$ has variance $\sigma^2$, so that $\int_{-\infty}^{\infty}(\Delta x)^2 g(\Delta x) 
+  d \Delta x = \sigma^2$. Last, as  $g(~)$ is a normal distribution, all higher terms are zero. Therefore, the change in frequency, $\Delta q(x,t) = q(x,t+1)-q(x,t)$, is simply given by
 \begin{equation}
-\Delta q(x,t) = \frac{\sigma^2}{2} \frac{d^2q(x,t)}{dx^2}
+	\Delta q(x,t) = \frac{\sigma^2}{2} \frac{d^2q(x,t)}{dx^2}.
 \end{equation} 
-this is a diffusion equation, so that migration is acting to smooth
-out allele frequency differences with a diffusion constant
-of $\tfrac{\sigma^2}{2}$. This is exactly analogous to the equation
-describing how a gas diffuses out to equal density, as both particles
-in a gas and our individuals of type $2$ are performing brownian
-motion (blurring our eyes and seeing time as continuous). \\
+This is a diffusion equation. It tells us that migration is acting to smooth
+out allele frequency differences across space with a diffusion constant
+of $\sigma^2/2$. This is exactly analogous to the equation
+describing how a gas diffuses out to equal density. Both particles
+in a gas and individuals of type $A_2$ are performing Brownian
+motion (if we blur our eyes and take time as continuous). \\
 
 
-We will now introduce fitness differences into our model and set the
-relative fitnesses of allele $1$ and $2$ at location $x $ to be $1$ and
-$1+s\gamma(x)$. To make progress in this model we'll have to assume that selection
-isn't too strong i.e. $s \gamma(x) \ll 1$ for all $x$. The the change in
-frequency of allele $2$ obtained within a generation due to selection is
+We will now add selection to our model and set the
+relative fitnesses of allele $A_1$ and $A_2$ at location $x$ to be $1$ and
+$1+s\gamma(x)$, respectively. To make progress in this model, we will have to assume that selection
+is not too strong, i.e.\ $s \gamma(x) \ll 1$ for all $x$. The change in
+frequency of allele $A_2$ within a generation due to selection is
 \begin{equation}
-q^{\prime}(x,t) - q(x,t) \approx s\gamma(x) q(x,t) \big( 1 - q(x,t) \big)
+	q^{\prime}(x,t) - q(x,t) \approx s\gamma(x) q(x,t) \big( 1 - q(x,t) \big).
 \end{equation}
-i.e. logistic growth of our favoured allele at location $x$. 
-Putting our selection and migration terms together we find 
+Hence, at location $x$, the favoured allele grows logistically. We have seen similar approximations before for the haploid and diploid model of selection.
+
+Putting together the terms for selection and migration, we find 
 \begin{equation}
-q(x,t+1) - q(x,t) = s\gamma(x) q(x,t) \big( 1 - q(x,t)
+	q(x,t+1) - q(x,t) = s\gamma(x) q(x,t) \big( 1 - q(x,t).
 \big)+\frac{\sigma^2}{2} \frac{d^2q(x,t)}{dx^2} \label{eqn:fisherKPP}
 \end{equation}
-in derving this we have essentially assumed that migration acted upon our original
-frequencies before selection and in doing so have ignored terms of the
+In derving this, we have essentially assumed that migration acted upon the original
+frequencies before selection, and in doing so, we have ignored terms of the
 order of $\sigma s$. 
 
 
@@ -2187,24 +2186,24 @@ order of $\sigma s$.
 \begin{center}
 \includegraphics[width=0.5\textwidth]{Figs/equilib_cline.eps}
 \end{center}
-\caption{An equilibrium cline in allele frequency. Our individuals
-  dispersal an average distance of $\sigma=1$km per generation, and our
-allele $2$ has a relative fitness of $1+s$ and $1-s$ on either side of
-the environmental change at $x=0$.} \label{fig:cline}
+\caption{An equilibrium cline in allele frequency. Individuals
+  disperse an average distance of $\sigma=1$ km per generation, and 
+allele $A2$ has a relative fitness of $1+s$ and $1-s$ on either side of
+the the boundary ($x = 0$) at which the environmen changes.}
+\label{fig:cline}
 \end{figure}
 
 
-To make progress lets consider a simple model of location adaptation
-where the environment abruptly changes. Specifically we assume that
-$\gamma(x)= -1$
-for $x<0$ and $\gamma(x)= 1$ for $x \geq 0$, i.e. our allele $2$ has a
+To gain some more insight, let us consider a simple model of location adaptation
+where the environment abruptly changes. Specifically, we assume that
+$\gamma(x)= -1$ for $x<0$ and $\gamma(x)= 1$ for $x \geq 0$. Hence, allele $A_2$ has a
 selective advantage at locations to the left of zero, while this
-allele is at a disadvantage to the right of zero. In this case we can
-get an equilibrium distribution of our two alleles were to the left
-of $zero$ our allele $2$ is at higher frequency, while to the right of
-zero allele $1$ predominates. As we cross from the left to the right
-side of our range the frequency of our allele $2$ decreases in a
-smooth cline.\\
+allele is at a disadvantage to the right of zero. In this case, we can
+get an equilibrium distribution of the two alleles such that to the left
+of $x = 0$ allele $A_2$ is at higher frequency, while to the right of
+$x=0$ allele $A_1$ predominates. As we cross from the left to the right
+side of the boundary, the frequency of allele $A_2$ decreases in a
+smooth cline. Note that the transition is gradual, even though the change in the environment is abrubt. This is because migration smooths out some of the differences across the sharp boundary. \\
 
 
 
@@ -2221,25 +2220,25 @@ smooth cline.\\
 %derive this \gc{to be added}.\\
 
 Our equilibrium spatial distribution of allele frequencies can be found by
-setting the LHS of eqn. \eqref{eqn:fisherKPP} to zero to arrive at
+setting the left-hand side of eqn.\ \eqref{eqn:fisherKPP} to zero to arrive at
 \begin{equation}
-s\gamma(x) q(x) \left( 1 - q(x) \right) = \frac{\sigma^2}{2} \frac{d^2q(x)}{dx^2}
+	s\gamma(x) q(x) \left( 1 - q(x) \right) = \frac{\sigma^2}{2} \frac{d^2q(x)}{dx^2}.
 \end{equation}
 We then could solve this differential equation with appropriate boundary
-conditions ($q(-\infty)=1$ and $q(\infty) = 0$) to arrive at the
-appropriate functional form to our cline. While we won't go into the
-solution of this equation here, we can note that by dividing our
-distance $x$ by $\ell=\sigma/\sqrt{s}$ we can remove the effect of our
+conditions ($q(-\infty)=1$ and $q(\infty) = 0$) to obtain the
+appropriate functional form to our cline. While we will not go into the
+solution of this equation here, we can note that by dividing the
+distance $x$ by $\ell=\sigma/\sqrt{s}$, we can remove the effect of the
 parameters from the above equation. This compound parameter $\ell$ is the characteristic
-length of our cline, and it is this parameter which determines over
-what geographic scale we change from allele $2$ predominating to
-allele $1$ predominating as we move across our environmental shift. \\
+length of the cline. It is this parameter that determines over
+what geographic scale we change from allele $A_2$ predominating to
+allele $A_1$ predominating as we move across the environmental shift. \\
 
-The width of our cline, i.e. over what distance do we make this shift
-from allele $2$ predominating to allele $1$,
+The width of the cline, i.e.\ over what distance we make this shift
+from allele $A_2$ predominating to allele $A_1$,
 can be defined in a number of different ways. One simple way to define
-the cline width, which is easy to define but perhaps hard to measure accurately, is the slope (i.e. the
-tangent) of $q(x)$ at $x=0$. Under this definition the cline width is approximately $0.6
+the cline width, which is easy to define but perhaps hard to measure accurately, is the slope (i.e.\ the
+tangent) of $q(x)$ at $x=0$. Under this definition, the cline width is approximately $0.6\,
 \sigma/\sqrt{s}$.\\
 
 \newpage
