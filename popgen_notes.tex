@@ -338,7 +338,11 @@ the fitness (we'll make clear what we mean by discernable later, for
 the moment think of this as “no effect” on fitness). 
 
 
+<<<<<<< HEAD
 \subsection{Loss of heterozygosity due to to drift}
+=======
+\subsection{Loss of heterozygosity due to to drift.} \label{LossofHet} 
+>>>>>>> origin/master
 
 Genetic drift will, in the absence of new mutations, slowly purge our
 population of neutral genetic diversity as alleles slowly drift to high or low
@@ -391,7 +395,7 @@ H_{t+1} =H_0 \exp \left(-\frac{t}{2N} \right)
 i.e. heterozygosity decays exponentially at a rate $1/(2N)$.
 
 \subsection{Levels of diversity maintained by a balance between
- mutation and drift}
+ mutation and drift} \label{DriftMutationBalance}
 
 Looking backwards in time from one generation to the next, we are going
 to say that two alleles which have the same parental allele (i.e. find
@@ -2558,11 +2562,12 @@ transmissions. Thus the average number of neutral mutational
 differences separating our pair of species is simply $2\mu (1-C) T$.\\
 
 
-
+\subsection{The Coalescent and patterns of neutral diversity}
 
 \paragraph{Pairwise Coalescent time distribution and the number of
  pairwise differences.}
-In the preceding calculation you'll note that we could first specify
+Thinking back to our calculations we made about the loss of neutral heterozygosity
+and equilibrium levels of diversity (in Sections \ref{LossofHet} and \ref{DriftMutationBalance}), you'll note that we could first specify
 what generation a pair of sequences coalesce in, and then calculate
 some properties of heterozygosity based on that. That's because neutral
 mutations do not affect the probability that an individual transmits
@@ -2571,7 +2576,8 @@ back. \\
 
 As such it will often be helpful to consider the time to the common
 ancestor of a pair of sequences, and then think of the impact of that
-on patterns of diversity. The probability that a pair of alleles
+on patterns of diversity. See Figure \ref{fig:Coalescent_simulation}
+for an example of this. The probability that a pair of alleles
 have failed to coalesce in $t$ generations and then coalesce in the
 $t+1$ generation back is
 \begin{equation}
@@ -2581,6 +2587,22 @@ thus the coalescent time of a pair of sequences ($T_2$) is
 approximately exponentially distributed with a rate $1/(2N)$. We'll denote that by
 saying that $T_2 \sim Exp \left( 1/(2N) \right)$. The mean coalescent
 time of a pair of a pair of alleles is $2N$ generations\\
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Figs/Coalescent.png}
+\end{center}
+\caption{A simple simulation of the coalescent process. The simulation
+  consists of a diploid population of 10 individuals (20 alleles). In
+  each generation, each individual is equally likely to be the parent
+  of an offspring (and the allele transmitted is indicated by a light
+  grey line).  We track a
+  pair of alleles, chosen in the present day, back 14 generations
+  untill they find a common ancestor.} \label{fig:Coalescent_simulation}
+\end{figure}
+
+
 
 Conditional on a pair of alleles coalescing $t$ generations ago
 there are $2t$ generations in which a mutation could occur. Thus the
@@ -2650,10 +2672,25 @@ ancestor is
 \left(1-\frac{1}{(2N)} \right)^3 \approx \left( 1- \frac{3}{2N} \right)
 \end{equation}
 in making this approximation we are multiplying out the right hand-side
-and ignoring terms of $1/N^2$ and higher. \\
+and ignoring terms of $1/N^2$ and higher. See
+Figure \ref{fig:Coalescent_simulation_3} for a random realization of this process. \\
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = \textwidth]{Figs/Coalescent_3}
+\end{center}
+\caption{A simple simulation of the coalescent process for three
+  lineages. We track the ancestry of 
+  three modern-day alleles, the first pair (blue and purple) coalesce four generations back 
+  their are then two independent lineages we are tracking, this pair
+  then coalesces twelve generations in the past. Note that different
+  random realizations of this process will differ from each other a lot.} \label{fig:Coalescent_simulation_3}
+\end{figure}
+
 
 More generally when we sample $i$ alleles there are ${i \choose
- 2}$ pairs, i.e. $i(i-1)2$ pairs, thus the probability that no pair
+ 2}$ pairs, i.e. $i(i-1)/2$ pairs, thus the probability that no pair
 of alleles coalesces in the preceding generation is
 \begin{equation}
 \left(1-\frac{1}{(2N)} \right)^{{i \choose
